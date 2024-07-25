@@ -1,5 +1,4 @@
 # rodar no terminal: 
-# cd C:\Users\bserpellone\Desktop\Python\github
 # streamlit run calendário_olimpíada.py
 
 import streamlit as st
@@ -53,7 +52,7 @@ st.markdown(
 )
 
 # Carregar o DataFrame
-arquivo = r"C:\Users\bserpellone\Desktop\Python\github\horario olimpiada.csv"
+arquivo = r"calendario br olimpiadas.csv"
 df_horarios = pd.read_csv(arquivo, delimiter=';')
 
 # Converter a coluna 'Data' para formato datetime
