@@ -3,6 +3,11 @@ import PyPDF2
 import re
 import io
 
+import streamlit as st
+import PyPDF2
+import re
+import io
+
 # ___________________________________________________________________________________________________________________________________
 # Funções para mesclagem de PDFs
 # ___________________________________________________________________________________________________________________________________
@@ -174,5 +179,6 @@ if st.button("Mesclar"):
             )
     else:
         st.write("Por favor, faça o upload de pelo menos um arquivo PDF.")
+
 
 # streamlit run C:\Users\bserpellone\Desktop\Python\github\pdf_merger\pdf_merger.py
