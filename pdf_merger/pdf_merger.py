@@ -6,20 +6,26 @@ import re
 # ___________________________________________________________________________________________________________________________________
 # Funções para mesclagem de PDFs
 # ___________________________________________________________________________________________________________________________________
-def todo_pdf(pasta, nome_arquivo="/pdf_merged.pdf"):
+def todo_pdf(pasta, nome_arquivo="pdf_merged.pdf"):
     merger = PyPDF2.PdfMerger()
     for file in os.listdir(pasta):
         if file.endswith('.pdf'):
-            merger.append(f"{pasta}/{file}")
+            caminho_pdf = os.path.join(pasta, file)
+            merger.append(caminho_pdf)
 
     output_path = os.path.join(pasta, nome_arquivo)
-    merger.write(output_path)
-    merger.close()
-    st.markdown(f'''
-        <div style="display: flex; justify-content: center; align-items: center; height: 100px;">
-            <p style="font-size: 16px; color: green; font-weight: bold;">PDFs mesclados com sucesso em: {output_path}</p>
-        </div>
-    ''', unsafe_allow_html=True)
+    
+    try:
+        merger.write(output_path)
+        st.markdown(f'''
+            <div style="display: flex; justify-content: center; align-items: center; height: 100px;">
+                <p style="font-size: 16px; color: green; font-weight: bold;">PDFs mesclados salvos com sucesso em:<br>{output_path}</p>
+            </div>
+        ''', unsafe_allow_html=True)
+    except Exception as e:
+        st.error(f"Ocorreu um erro ao salvar o PDF: {e}")
+    finally:
+        merger.close()
 
 def mesclar_paginas(pasta, paginas, nome_arquivo="/pdf_merged.pdf"):
     paginas_indicadas = set()
@@ -180,6 +186,7 @@ if opcoes == 'Juntar pelo menos uma página de todos os PDFs':
     paginas = st.text_input("Páginas a serem mescladas: ")
 
 folder_path = st.text_input("Insira o caminho da pasta com os PDFs:")
+folder_path = os.path.normpath(folder_path)
 
 if st.button("Mesclar"):
     if folder_path and os.path.isdir(folder_path):
