@@ -1,4 +1,2 @@
 streamlit
-os
 PyPDF2==2.12.1
-re
