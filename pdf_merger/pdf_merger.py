@@ -27,7 +27,7 @@ def todo_pdf(pasta, nome_arquivo="pdf_merged.pdf"):
     finally:
         merger.close()
 
-def mesclar_paginas(pasta, paginas, nome_arquivo="/pdf_merged.pdf"):
+def mesclar_paginas(pasta, paginas, nome_arquivo="pdf_merged.pdf"):
     paginas_indicadas = set()
     
     # Separa as páginas por vírgula e hífen
@@ -84,7 +84,7 @@ def mesclar_paginas(pasta, paginas, nome_arquivo="/pdf_merged.pdf"):
         merger.write(output_path)
         st.markdown(f'''
             <div style="display: flex; justify-content: center; align-items: center; height: 100px;">
-                <p style="font-size: 16px; color: green; font-weight: bold;">PDFs mesclados com sucesso em: {output_path}</p>
+                <p style="font-size: 16px; color: green; font-weight: bold;">PDFs mesclados salvos com sucesso em:<br>{output_path}</p>
             </div>
         ''', unsafe_allow_html=True)
     except Exception as e:
@@ -201,4 +201,4 @@ if st.button("Mesclar"):
         st.write("Por favor, insira um caminho válido para a pasta.")
 
 
-# streamlit run C:\Users\bserpellone\Desktop\Python\github\pdf_merger.py
+# streamlit run C:\Users\bserpellone\Desktop\Python\github\pdf_merger\pdf_merger.py
