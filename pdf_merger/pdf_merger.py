@@ -141,7 +141,7 @@ st.markdown('''
     <p style="margin-left: 25px;">
     Coloque todos os PDFs que você deseja mesclar numa pasta.<br>
     O programa irá acessar todos os arquivos dessa pasta e mesclar conforme o tipo de mesclagem escolhido.<br>
-    Para isso, preencha os campos abaixo, e, ao final, clique no botão Mesclar para salvar o arquivo:
+    Para isso, preencha os campos abaixo, e, ao final, clique no botão Mesclar para salvar o arquivo.
     </p>
     ''', unsafe_allow_html=True)
 
