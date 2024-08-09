@@ -1,4 +1,4 @@
 streamlit
 os
-PyPDF2
+PyPDF2==2.12.1
 re
